@@ -1,0 +1,17 @@
+.progress {
+  height: 30px;
+}
+
+.progress-bar {
+  background: linear-gradient(
+    135deg,
+    #6c757d 25%,
+    #f8f9fa 25%,
+    #f8f9fa 50%,
+    #6c757d 50%,
+    #6c757d 75%,
+    #f8f9fa 75%,
+    #f8f9fa 100%
+  );
+  background-size: 1rem 1rem;
+}
