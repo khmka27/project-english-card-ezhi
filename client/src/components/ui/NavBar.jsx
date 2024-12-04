@@ -7,7 +7,9 @@ import { NavLink } from 'react-router-dom';
 export default function NavBar({ user, logoutHandler }) {
   return (
     <Navbar bg="light" data-bs-theme="light">
-      <Container>
+      <Container style={{
+        backgroundColor: '#004f83'
+      }}>
         <Nav className="me-auto">
           <NavLink to="/" className="nav-link">
             Home

@@ -5,6 +5,8 @@ import SignUpPage from '../src/components/pages/SignUpPage';
 import SignInPage from '../src/components/pages/SignInPage';
 import ProtectedRouter from './components/HOCs/ProtectedRouter';
 import useUser from '../src/components/hooks/useUser';
+import ThemesPage from './components/pages/ThemesPage';
+import CardsPage from './components/pages/CardsPage';
 function App() {
   const { logoutHandler, signInHandler, signUpHandler, user } = useUser();
   const router = createBrowserRouter([
@@ -30,6 +32,14 @@ function App() {
             },
           ],
         },
+        {
+          path: '/themes',
+          element: <ThemesPage/>
+        },
+        {
+          path: '/themes/:id',
+          element: <CardsPage/>,
+        }
       ],
     },
   ]);
