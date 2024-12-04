@@ -1,0 +1,23 @@
+.custom-navbar {
+  background-color: transparent;
+  font-family: 'Cutive Mono', monospace;
+  border-bottom: 1px solid #007bff;
+}
+
+.custom-navbar .nav-link {
+  color: #007bff;
+}
+
+.custom-navbar .nav-link.active {
+  font-weight: bold;
+}
+
+.custom-navbar .btn-outline-danger {
+  border-color: black;
+  color: black;
+}
+
+.custom-navbar .btn-outline-danger:hover {
+  background-color: red;
+  color: white;
+}

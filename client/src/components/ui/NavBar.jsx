@@ -4,17 +4,19 @@ import Button from 'react-bootstrap/esm/Button';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
+import '../CSS/NavBar.css';
+
 export default function NavBar({ user, logoutHandler }) {
   return (
-    <Navbar bg="light" data-bs-theme="light">
+    <Navbar className="custom-navbar" data-bs-theme="light">
       <Container>
         <Nav className="me-auto">
           <NavLink to="/" className="nav-link">
             Home
           </NavLink>
           {user.data && (
-            <NavLink to="/my-xs" className="nav-link">
-              My xs
+            <NavLink to="/profile" className="nav-link">
+              Profile
             </NavLink>
           )}
         </Nav>
