@@ -5,6 +5,8 @@ import SignUpPage from './components/pages/SignUpPage';
 import SignInPage from './components/pages/SignInPage';
 import ProtectedRouter from './components/HOCs/ProtectedRouter';
 import useUser from '../src/components/hooks/useUser';
+import ThemesPage from './components/pages/ThemesPage';
+import CardsPage from './components/pages/CardsPage';
 import ProfilePage from './components/pages/ProfilePage';
 
 function App() {
@@ -35,6 +37,14 @@ function App() {
             },
           ],
         },
+        {
+          path: '/themes',
+          element: <ThemesPage/>
+        },
+        {
+          path: '/themes/:id',
+          element: <CardsPage/>,
+        }
       ],
     },
   ]);
