@@ -2,6 +2,7 @@
   background-color: transparent;
   font-family: 'Cutive Mono', monospace;
   border-bottom: 1px solid #007bff;
+  height: 70px;
 }
 
 .custom-navbar .nav-link {

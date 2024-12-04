@@ -1,12 +1,11 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Layout from './components/Layout';
 import MainPage from './components/pages/MainPage';
-import SignUpPage from './components/pages/SignUpPage';
-import SignInPage from './components/pages/SignInPage';
+import SignUpPage from '../src/components/pages/SignUpPage';
+import SignInPage from '../src/components/pages/SignInPage';
 import ProtectedRouter from './components/HOCs/ProtectedRouter';
 import useUser from '../src/components/hooks/useUser';
 import ProfilePage from './components/pages/ProfilePage';
-
 function App() {
   const { logoutHandler, signInHandler, signUpHandler, user } = useUser();
   const router = createBrowserRouter([
@@ -22,6 +21,7 @@ function App() {
           path: '/profile',
           element: <ProfilePage user={user} />,
         },
+
         {
           element: <ProtectedRouter isAllowed={user.status !== 'logged'} />,
           children: [
