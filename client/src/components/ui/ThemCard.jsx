@@ -15,7 +15,17 @@ export default function ThemCard({ card, onCardClick }) {
       <Card.Img variant="top" src={card.image} />
       <Card.Body
         style={{
-          backgroundColor: '#064fbd',
+          bottom: '15px',
+          borderRadius: '10px',
+          position: 'absolute',
+          left: '50%',
+          transform: 'translate(-50%, 33%)',
+          textAlign: 'center',
+          width: '100%',
+          color: 'white',
+          background:
+            'linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0))',
+          padding: '10px',
         }}
       >
         <Card.Title
