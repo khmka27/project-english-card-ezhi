@@ -39,12 +39,12 @@ function App() {
         },
         {
           path: '/themes',
-          element: <ThemesPage/>
+          element: <ThemesPage />,
         },
         {
           path: '/themes/:id',
-          element: <CardsPage/>,
-        }
+          element: <CardsPage />,
+        },
       ],
     },
   ]);
