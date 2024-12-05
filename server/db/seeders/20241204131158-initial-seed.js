@@ -29,7 +29,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
-
+      
       {
         nameTheme: 'Дом',
         image: '/home.svg',
@@ -414,6 +414,44 @@ module.exports = {
         themeId: 9,
         createdAt: new Date(),
         updatedAt: new Date(),
+      },
+    ]);
+
+    await queryInterface.bulkInsert('Learneds', [
+      { 
+        userId: 1, 
+        themeId: 1, 
+        createdAt: new Date(), 
+        updatedAt: new Date() 
+      },
+      { 
+        userId: 1, 
+        themeId: 2, 
+        createdAt: new Date(), 
+        updatedAt: new Date() 
+      },
+      { 
+        userId: 1, 
+        themeId: 3, 
+        createdAt: new Date(), 
+        updatedAt: new Date() },
+      { 
+        userId: 2, 
+        themeId: 4, 
+        createdAt: new Date(), 
+        updatedAt: new Date() 
+      },
+      { 
+        userId: 2, 
+        themeId: 5, 
+        createdAt: new Date(), 
+        updatedAt: new Date() 
+      },
+      {
+        userId: 2, 
+        themeId: 6, 
+        createdAt: new Date(), 
+        updatedAt: new Date() 
       },
     ]);
   },
