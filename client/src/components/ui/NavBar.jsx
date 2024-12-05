@@ -22,9 +22,6 @@ export default function NavBar({ user, logoutHandler }) {
           <NavLink to="/" className="nav-link">
             Home
           </NavLink>
-          <NavLink to="/themes" className="nav-link">
-            Themes
-          </NavLink>
           {user.data && (
             <>
               <NavLink to="/themes" className="nav-link">
@@ -42,7 +39,7 @@ export default function NavBar({ user, logoutHandler }) {
               <NavLink to="/auth/signup" className="nav-link">
                 Sign Up
               </NavLink>
-              
+
               <span className="nav-link">|</span>
             </>
           )}
