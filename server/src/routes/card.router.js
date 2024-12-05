@@ -52,7 +52,7 @@ cardRouter
   })
   .put(async (req, res) => {
     const { id } = req.params;
-    const { engWord, rusWord, themeId } = req.body;
+    const { engWord, rusWord, themeId } = req.body; // = updatedData
 
     try {
       const card = await Card.findByPk(id);
