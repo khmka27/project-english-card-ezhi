@@ -25,7 +25,12 @@ function App() {
         },
 
         {
-          element: <ProtectedRouter isAllowed={user.status !== 'logged'} />,
+          element: (
+            <ProtectedRouter
+              isAllowed={user.status !== 'logged'}
+              redirectTo={'/'}
+            />
+          ),
           children: [
             {
               path: '/auth/signup',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Card,
   Image,
@@ -10,9 +10,22 @@ import {
 } from 'react-bootstrap';
 import CreateCard from '../ui/CreateCard';
 import '../CSS/ProfilePage.css';
+import axios from 'axios';
+import CreateTheme from '../ui/CreateTheme';
 
 export default function ProfilePage({ user }) {
   const [activeTab, setActiveTab] = useState('progress');
+  const [createMode, setCreateMode] = useState('createCard');
+  const [themes, setThemes] = useState([]);
+
+  useEffect(() => {
+    axios.get('/api/themes').then((res) => setThemes(res.data));
+  }, []);
+
+  const handleThemeSubmit = (themeName) => {
+    // Здесь вы можете добавить логику для отправки темы на сервер
+    console.log('Создана тема:', themeName);
+  };
 
   return (
     <div
@@ -41,11 +54,11 @@ export default function ProfilePage({ user }) {
             </Col>
             <Col>
               <Button
-                variant={activeTab === 'createCard' ? 'primary' : 'secondary'}
-                onClick={() => setActiveTab('createCard')}
+                variant={activeTab === 'create' ? 'primary' : 'secondary'}
+                onClick={() => setActiveTab('create')}
                 style={{ width: '100%' }}
               >
-                CreateCard
+                Create
               </Button>
             </Col>
           </Row>
@@ -77,13 +90,45 @@ export default function ProfilePage({ user }) {
             </div>
           )}
 
-          {activeTab === 'createCard' && (
+          {activeTab === 'create' && (
             <div className="mt-4">
-              <h5>Создание карточки</h5>
-              <Container className="mt-4">
-                <h5>Добавить карточку</h5>
-                <CreateCard />
-              </Container>
+              <h5>Создание карточки или темы</h5>
+              <Row className="mt-4">
+                <Col>
+                  <Button
+                    variant={
+                      createMode === 'createCard' ? 'primary' : 'secondary'
+                    }
+                    onClick={() => setCreateMode('createCard')}
+                    style={{ width: '100%' }}
+                  >
+                    Создать карточку
+                  </Button>
+                </Col>
+                <Col>
+                  <Button
+                    variant={
+                      createMode === 'createTheme' ? 'primary' : 'secondary'
+                    }
+                    onClick={() => setCreateMode('createTheme')}
+                    style={{ width: '100%' }}
+                  >
+                    Создать тему
+                  </Button>
+                </Col>
+              </Row>
+
+              {createMode === 'createCard' && (
+                <Container className="mt-4">
+                  <CreateCard themes={themes} />
+                </Container>
+              )}
+
+              {createMode === 'createTheme' && (
+                <Container className="mt-4">
+                  <CreateTheme onSubmit={handleThemeSubmit} />
+                </Container>
+              )}
             </div>
           )}
         </Card.Body>

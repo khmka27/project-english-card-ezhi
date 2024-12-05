@@ -24,11 +24,12 @@ module.exports = {
 
     await queryInterface.bulkInsert('Themes', [
       {
-        nameTheme: 'Еда',
-        image: '/food.svg',
+        nameTheme: 'Мои карточки',
+        image: '/mycards.svg',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+
       {
         nameTheme: 'Дом',
         image: '/home.svg',
@@ -53,12 +54,14 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+
       {
-        nameTheme: 'Мои карточки',
-        image: '/mycards.svg',
+        nameTheme: 'Еда',
+        image: '/food.svg',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+
       {
         nameTheme: 'Природа',
         image: '/nature.svg',

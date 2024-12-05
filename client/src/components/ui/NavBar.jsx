@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/esm/Button';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../CSS/NavBar.css';
 
 export default function NavBar({ user, logoutHandler }) {
@@ -19,9 +19,6 @@ export default function NavBar({ user, logoutHandler }) {
           </NavLink>
           {user.data && (
             <>
-              <NavLink to="/profile" className="nav-link">
-                Profile
-              </NavLink>
               <NavLink to="/themes" className="nav-link">
                 Themes
               </NavLink>
@@ -42,7 +39,7 @@ export default function NavBar({ user, logoutHandler }) {
             </>
           )}
           <span className="nav-link">
-            {user.data ? user.data.name : 'Гость'}
+            {user.data ? <Link to="/profile">{user.data.name}</Link> : 'Гость'}
           </span>
           {user.data && (
             <span className="nav-link">
