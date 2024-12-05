@@ -3,13 +3,15 @@ import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-export default function CreateCard({ themes }) {
+export default function CreateCard({ themes, user }) {
   const navigate = useNavigate();
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
       const data = Object.fromEntries(new FormData(e.target));
       data.themeId = +data.themeId;
+      data.createdBy = user.data.id;
+      console.log(data);
       await axios.post('/api/cards', data);
       navigate(`/themes/${data.themeId}`);
       e.target.reset();
@@ -42,12 +44,7 @@ export default function CreateCard({ themes }) {
 
       <Form.Group controlId="formThemeId">
         <Form.Label>Тема</Form.Label>
-        <Form.Control
-          as="select"
-          placeholder="Выберите тему"
-          name="themeId"
-          required
-        >
+        <Form.Control as="select" placeholder="Выберите тему" name="themeId" required>
           {themes
             .filter((theme) => theme.nameTheme !== 'Мои карточки')
             .map((theme) => (

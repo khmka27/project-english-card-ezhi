@@ -15,9 +15,10 @@ cardRouter
   })
   .post(async (req, res) => {
     try {
-      const { engWord, rusWord, themeId } = req.body;
+      const { engWord, rusWord, themeId, createdBy } = req.body;
+      console.log(req.body);
 
-      if (!engWord || !rusWord || !themeId) {
+      if (!engWord || !rusWord || !themeId || !createdBy) {
         return res.status(400).send('All fields are required.');
       }
 
@@ -25,7 +26,9 @@ cardRouter
         engWord,
         rusWord,
         themeId,
+        createdBy,
       });
+      
       res.status(201).json(newCard);
     } catch (error) {
       console.error(error);
@@ -52,12 +55,12 @@ cardRouter
   })
   .put(async (req, res) => {
     const { id } = req.params;
-    const { engWord, rusWord, themeId } = req.body; // = updatedData
+    const { engWord, rusWord, themeId, createdBy } = req.body; // = updatedData
 
     try {
       const card = await Card.findByPk(id);
       if (card) {
-        await card.update({ engWord, rusWord, themeId });
+        await card.update({ engWord, rusWord, themeId, createdBy });
         res.status(200).json(card);
       } else {
         res.status(404).json({ error: 'Card not found.' });
