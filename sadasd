@@ -1,0 +1,99 @@
+[33mcommit 4f0f71ca95ab05bc3a31707da6844e807230843c[m[33m ([m[1;36mHEAD -> [m[1;32mGrossy[m[33m, [m[1;31morigin/dev[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mdev[m[33m)[m
+Merge: 0e7ac49 6049c56
+Author: Grossyles <epic.nikolaus@gmail.com>
+Date:   Thu Dec 5 10:43:40 2024 +0300
+
+    Merge branch 'Grossy' into dev
+
+[33mcommit 6049c56330d8a15b1f36e5827d20b4cad3fd5931[m
+Author: Grossyles <epic.nikolaus@gmail.com>
+Date:   Thu Dec 5 10:42:09 2024 +0300
+
+    Cards
+
+[33mcommit 0e7ac49ab58b924f9a2bdd9ed943dba31756318a[m
+Merge: 4b85154 9cba198
+Author: Tamara Dzhikiya <djandzh.77@gmail.com>
+Date:   Thu Dec 5 09:31:23 2024 +0300
+
+    Merge pull request #1 from khmka27/dzhi600
+    
+    Dzhi600
+
+[33mcommit 9cba198395c1727dd0e03b3643c7e3ae5bf4e86f[m[33m ([m[1;31morigin/dzhi600[m[33m)[m
+Merge: f24fb40 4b85154
+Author: tamara.dzhikiya <djandzh.77@gmail.com>
+Date:   Thu Dec 5 09:28:32 2024 +0300
+
+    Merge remote-tracking branch 'origin/dev' into dzhi600
+
+[33mcommit 4b8515489d7610da41d772a30601dd99f7779002[m
+Merge: 771757a af3592b
+Author: khmka27 <ym077wi@gmail.com>
+Date:   Thu Dec 5 09:21:03 2024 +0300
+
+    Merge branch 'khamid' into dev
+
+[33mcommit af3592b855dd4e2a353cfd70031a81783eec17b6[m
+Author: khmka27 <ym077wi@gmail.com>
+Date:   Thu Dec 5 09:20:12 2024 +0300
+
+    check
+
+[33mcommit f24fb40b42effdc0cc2fd8dc6c98a354d111b273[m
+Author: tamara.dzhikiya <djandzh.77@gmail.com>
+Date:   Thu Dec 5 09:17:55 2024 +0300
+
+    footer
+
+[33mcommit 771757a735c5d5972678b05c176e9a3a591de8ae[m
+Author: tamara.dzhikiya <djandzh.77@gmail.com>
+Date:   Wed Dec 4 21:50:33 2024 +0300
+
+    footer
+
+[33mcommit 14b74f8d41df171c677fbf81f2131649af7dd3af[m
+Merge: d9f6a5c b80fa85
+Author: tamara.dzhikiya <djandzh.77@gmail.com>
+Date:   Wed Dec 4 21:50:00 2024 +0300
+
+    Merge branch 'dzhi600' into dev
+
+[33mcommit b80fa85550cd828ed237c1c01d299aaed8623b17[m
+Author: tamara.dzhikiya <djandzh.77@gmail.com>
+Date:   Wed Dec 4 21:43:32 2024 +0300
+
+    footer
+
+[33mcommit d9f6a5c56d754706b41b09d62485fe0828fcfaed[m
+Merge: 21c7f4a 6931b72
+Author: khmka27 <ym077wi@gmail.com>
+Date:   Wed Dec 4 21:34:09 2024 +0300
+
+    Merge branch 'khamid' into dev
+
+[33mcommit 6931b729f5415413044dc0e033262a4ffc1f518a[m
+Author: khmka27 <ym077wi@gmail.com>
+Date:   Wed Dec 4 21:33:26 2024 +0300
+
+    profile2
+
+[33mcommit 21c7f4a1c09e4ea95e57865699bd2099aa12474c[m
+Merge: 8890f56 68e2dc5
+Author: Grossyles <epic.nikolaus@gmail.com>
+Date:   Wed Dec 4 21:25:53 2024 +0300
+
+    Merge branch 'Grossy' into dev
+
+[33mcommit 68e2dc5dcbcc5c44cfeb692d09716fa07d1b22bb[m
+Author: Grossyles <epic.nikolaus@gmail.com>
+Date:   Wed Dec 4 21:24:06 2024 +0300
+
+    Function map
+
+[33mcommit 8890f56a06bce70129075ac03c2cfe42d3420886[m
+Merge: f1e4c22 71de777
+Author: khmka27 <ym077wi@gmail.com>
+Date:   Wed Dec 4 20:19:12 2024 +0300
+
+    Merge branch 'khamid' into dev
