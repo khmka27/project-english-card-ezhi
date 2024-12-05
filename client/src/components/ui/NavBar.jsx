@@ -15,9 +15,14 @@ export default function NavBar({ user, logoutHandler }) {
             Home
           </NavLink>
           {user.data && (
-            <NavLink to="/profile" className="nav-link">
-              Profile
-            </NavLink>
+            <>
+              <NavLink to="/profile" className="nav-link">
+                Profile
+              </NavLink>
+              <NavLink to="/themes" className="nav-link">
+                Themes
+              </NavLink>
+            </>
           )}
         </Nav>
         <Nav>
