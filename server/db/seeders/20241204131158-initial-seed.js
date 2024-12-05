@@ -24,6 +24,13 @@ module.exports = {
 
     await queryInterface.bulkInsert('Themes', [
       {
+        nameTheme: 'Мои карточки',
+        image: '/mycards.svg',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+
+      {
         nameTheme: 'Еда',
         image: '/food.svg',
         createdAt: new Date(),
@@ -53,12 +60,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
-      {
-        nameTheme: 'Мои карточки',
-        image: '/mycards.svg',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
+
       {
         nameTheme: 'Природа',
         image: '/nature.svg',
@@ -84,35 +86,35 @@ module.exports = {
       {
         engWord: 'Apple',
         rusWord: 'Яблоко',
-        themeId: 1,
+        themeId: 6,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         engWord: 'Bread',
         rusWord: 'Хлеб',
-        themeId: 1,
+        themeId: 6,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         engWord: 'Cheese',
         rusWord: 'Сыр',
-        themeId: 1,
+        themeId: 6,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         engWord: 'Chicken',
         rusWord: 'Курица',
-        themeId: 1,
+        themeId: 6,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         engWord: 'Fish',
         rusWord: 'Рыба',
-        themeId: 1,
+        themeId: 6,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -269,35 +271,35 @@ module.exports = {
       {
         engWord: 'Flashcard',
         rusWord: 'Флеш-карта',
-        themeId: 6,
+        themeId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         engWord: 'Quiz',
         rusWord: 'Викторина',
-        themeId: 6,
+        themeId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         engWord: 'Study',
         rusWord: 'Учеба',
-        themeId: 6,
+        themeId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         engWord: 'Test',
         rusWord: 'Тест',
-        themeId: 6,
+        themeId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         engWord: 'Review',
         rusWord: 'Обзор',
-        themeId: 6,
+        themeId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
