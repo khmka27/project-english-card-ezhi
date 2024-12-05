@@ -57,8 +57,13 @@ export default function ProfilePage({ user }) {
 
           {activeTab === 'progress' && (
             <div className="mt-4">
+
               <h5>Прогресс обучения</h5>
-              <Progress />
+                {themes
+                .map((theme) => (
+                <Progress key={theme.id} theme={theme
+                } />
+                ))}
             </div>
           )}
 
