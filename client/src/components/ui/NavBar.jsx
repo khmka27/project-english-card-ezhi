@@ -14,9 +14,6 @@ export default function NavBar({ user, logoutHandler }) {
           <NavLink to="/" className="nav-link">
             Home
           </NavLink>
-          <NavLink to="/themes" className="nav-link">
-            Themes
-          </NavLink>
           {user.data && (
             <>
               <NavLink to="/profile" className="nav-link">
