@@ -32,7 +32,7 @@ export default function ProfilePage({ user }) {
             fluid
             style={{ width: '150px', height: '150px' }}
           />
-          <Card.Title className="mt-3">{user.data.name}</Card.Title>
+          <Card.Title className="mt-3">{user?.data?.name}</Card.Title>
 
           <Row className="mt-4">
             <Col>
@@ -68,9 +68,7 @@ export default function ProfilePage({ user }) {
               <Row className="mt-4">
                 <Col>
                   <Button
-                    variant={
-                      createMode === 'createCard' ? 'primary' : 'secondary'
-                    }
+                    variant={createMode === 'createCard' ? 'primary' : 'secondary'}
                     onClick={() => setCreateMode('createCard')}
                     style={{ width: '100%' }}
                   >
@@ -79,9 +77,7 @@ export default function ProfilePage({ user }) {
                 </Col>
                 <Col>
                   <Button
-                    variant={
-                      createMode === 'createTheme' ? 'primary' : 'secondary'
-                    }
+                    variant={createMode === 'createTheme' ? 'primary' : 'secondary'}
                     onClick={() => setCreateMode('createTheme')}
                     style={{ width: '100%' }}
                   >
