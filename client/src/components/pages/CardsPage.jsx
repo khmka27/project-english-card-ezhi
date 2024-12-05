@@ -2,6 +2,7 @@ import  { useEffect, useState } from 'react';
 import ItemCard from '../ui/ItemCard';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Button from 'react-bootstrap/esm/Button';
 
 export default function CardsPage() {
   const [cards, setCards] = useState([]);
@@ -27,12 +28,14 @@ export default function CardsPage() {
     <div
       style={{
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         flexWrap: 'wrap',
+        bottom: '10px',
+        paddingTop: '28px'
       }}
     >
       {cards.map((card) => (
-        <ItemCard key={card.id} card={card} />
+        <ItemCard key={card.id} card={card}  />
       ))}
     </div>
   );
