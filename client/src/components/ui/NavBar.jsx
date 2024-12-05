@@ -46,7 +46,7 @@ export default function NavBar({ user, logoutHandler }) {
               <span className="nav-link">|</span>
             </>
           )}
-          <span className="nav-link">{user.data ? user.data.name : 'Гость'}</span>
+          <span className="nav-link">{user.data ? <Link to="/profile">{user?.data.name}</Link> : 'Гость'}</span>
         </Nav>
         {user.data && (
           <span>
