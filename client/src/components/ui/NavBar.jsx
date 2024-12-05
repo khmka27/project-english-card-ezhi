@@ -10,6 +10,14 @@ export default function NavBar({ user, logoutHandler }) {
   return (
     <Navbar className="custom-navbar" data-bs-theme="light">
       <Container>
+        <Navbar.Brand
+          as={NavLink}
+          to="/"
+          className="text-center"
+          style={{ lineHeight: '1' }}
+        >
+          <img src="../public/logo.svg" alt="logo" style={{ height: '75px' }} />
+        </Navbar.Brand>
         <Nav className="me-auto">
           <NavLink to="/" className="nav-link">
             Home
@@ -37,21 +45,15 @@ export default function NavBar({ user, logoutHandler }) {
               <span className="nav-link">|</span>
             </>
           )}
-          <span className="nav-link">
-            {user.data ? user.data.name : 'Гость'}
-          </span>
-          {user.data && (
-            <span className="nav-link">
-              <Button
-                onClick={logoutHandler}
-                variant="outline-danger"
-                size="sm"
-              >
-                Logout
-              </Button>
-            </span>
-          )}
+          <span className="nav-link">{user.data ? user.data.name : 'Гость'}</span>
         </Nav>
+        {user.data && (
+          <span>
+            <Button onClick={logoutHandler} className="custom-logout-button">
+              <img src="../public/exit-door.svg" alt="exit" style={{ height: '30px' }} />
+            </Button>
+          </span>
+        )}
       </Container>
     </Navbar>
   );
