@@ -8,12 +8,11 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedCard, setEditedCard] = useState(card); // 123
 
-
   const handleFlip = (e) => {
-    if(e?.target?.tagName !== 'BUTTON' && e?.target?.tagName !== 'INPUT'){
-    setIsFlipped(!isFlipped);
+    if (e?.target?.tagName !== 'BUTTON' && e?.target?.tagName !== 'INPUT') {
+      setIsFlipped(!isFlipped);
+    }
   };
-}
 
   const handleSave = () => {
     handleEdit(card.id, editedCard);
@@ -27,7 +26,10 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
 
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-      <Card style={{ width: '18rem' }} onClick={handleFlip}>
+      <Card style={{ 
+        // width: '18rem',
+        
+       }} onClick={handleFlip}>
         <Card.Body>
           <Card.Text
             style={{
@@ -38,8 +40,6 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
           </Card.Text>
           <Card.Text>{card.rusWord}</Card.Text>
         </Card.Body>
-
-        <Button style={{}}>X</Button>
       </Card>
       <Card style={{ width: '18rem' }} onClick={handleFlip}>
         <Card.Body>
@@ -62,17 +62,28 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
               <Button variant="outline-success" onClick={handleSave}>
                 Сохранить
               </Button>
-              <Button variant="outline-danger" onClick={() => setIsEditing(false)}>
+              <Button
+                variant="outline-danger"
+                onClick={() => setIsEditing(false)}
+              >
                 Отменить
               </Button>
             </>
           ) : (
             <>
               <Card.Text>{card.rusWord}</Card.Text>
-          <Button variant="outline-primary" onClick={() =>  {setIsEditing(true)}}>
+              <Button
+                variant="outline-primary"
+                onClick={() => {
+                  setIsEditing(true);
+                }}
+              >
                 Изменить
               </Button>
-              <Button variant="outline-danger" onClick={() => handleDelete(card.id)}>
+              <Button
+                variant="outline-danger"
+                onClick={() => handleDelete(card.id)}
+              >
                 Удалить
               </Button>
             </>
@@ -82,4 +93,3 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
     </ReactCardFlip>
   );
 }
-
