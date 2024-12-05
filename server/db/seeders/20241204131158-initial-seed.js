@@ -31,12 +31,6 @@ module.exports = {
       },
 
       {
-        nameTheme: 'Еда',
-        image: '/food.svg',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-      {
         nameTheme: 'Дом',
         image: '/home.svg',
         createdAt: new Date(),
@@ -57,6 +51,13 @@ module.exports = {
       {
         nameTheme: 'Школа',
         image: '/school.svg',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+
+      {
+        nameTheme: 'Еда',
+        image: '/food.svg',
         createdAt: new Date(),
         updatedAt: new Date(),
       },

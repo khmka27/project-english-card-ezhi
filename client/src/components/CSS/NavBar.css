@@ -2,7 +2,7 @@
   background-color: transparent;
   font-family: 'Cutive Mono', monospace;
   border-bottom: 1px solid #007bff;
-  height: 70px;
+  height: 90px;
 }
 
 .custom-navbar .nav-link {
@@ -13,12 +13,20 @@
   font-weight: bold;
 }
 
-.custom-navbar .btn-outline-danger {
-  border-color: black;
-  color: black;
+.custom-logout-button {
+  border: none; 
+  background-color: transparent; 
+  color: #007bff !important;
+  padding: 0;
 }
 
-.custom-navbar .btn-outline-danger:hover {
-  background-color: red;
-  color: white;
+.custom-logout-button:hover {
+  background-color: transparent !important; 
+  color: #007bff !important; 
+}
+
+.custom-navbar .custom-logout-button {
+  color: #007bff !important; 
+  border: none;
+  background-color: transparent; 
 }

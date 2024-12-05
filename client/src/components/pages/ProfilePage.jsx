@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
-import {
-  Card,
-  Image,
-  ProgressBar,
-  Button,
-  Row,
-  Col,
-  Container,
-} from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Card, Image, Button, Row, Col, Container } from 'react-bootstrap';
 import CreateCard from '../ui/CreateCard';
 import '../CSS/ProfilePage.css';
+import axios from 'axios';
+import CreateTheme from '../ui/CreateTheme';
+import Progress from '../ui/Progress';
 
 export default function ProfilePage({ user }) {
   const [activeTab, setActiveTab] = useState('progress');
+  const [createMode, setCreateMode] = useState('createCard');
+  const [themes, setThemes] = useState([]);
+
+  useEffect(() => {
+    axios.get('/api/themes').then((res) => setThemes(res.data));
+  }, []);
+
+  const handleThemeSubmit = (themeName) => {
+    console.log('Создана тема:', themeName);
+  };
 
   return (
     <div
@@ -27,7 +32,7 @@ export default function ProfilePage({ user }) {
             fluid
             style={{ width: '150px', height: '150px' }}
           />
-          <Card.Title className="mt-3">{user.data.name}</Card.Title>
+          <Card.Title className="mt-3">{user?.data?.name}</Card.Title>
 
           <Row className="mt-4">
             <Col>
@@ -41,11 +46,11 @@ export default function ProfilePage({ user }) {
             </Col>
             <Col>
               <Button
-                variant={activeTab === 'createCard' ? 'primary' : 'secondary'}
-                onClick={() => setActiveTab('createCard')}
+                variant={activeTab === 'create' ? 'primary' : 'secondary'}
+                onClick={() => setActiveTab('create')}
                 style={{ width: '100%' }}
               >
-                CreateCard
+                Create
               </Button>
             </Col>
           </Row>
@@ -53,37 +58,45 @@ export default function ProfilePage({ user }) {
           {activeTab === 'progress' && (
             <div className="mt-4">
               <h5>Прогресс обучения</h5>
-              <ProgressBar
-                striped
-                animated
-                now={60}
-                label="60%"
-                className="mb-2"
-              />
-              <ProgressBar
-                striped
-                animated
-                now={80}
-                label="80%"
-                className="mb-2"
-              />
-              <ProgressBar
-                striped
-                animated
-                now={40}
-                label="40%"
-                className="mb-2"
-              />
+              <Progress />
             </div>
           )}
 
-          {activeTab === 'createCard' && (
+          {activeTab === 'create' && (
             <div className="mt-4">
-              <h5>Создание карточки</h5>
-              <Container className="mt-4">
-                <h5>Добавить карточку</h5>
-                <CreateCard />
-              </Container>
+              <h5>Создание карточки или темы</h5>
+              <Row className="mt-4">
+                <Col>
+                  <Button
+                    variant={createMode === 'createCard' ? 'primary' : 'secondary'}
+                    onClick={() => setCreateMode('createCard')}
+                    style={{ width: '100%' }}
+                  >
+                    Создать карточку
+                  </Button>
+                </Col>
+                <Col>
+                  <Button
+                    variant={createMode === 'createTheme' ? 'primary' : 'secondary'}
+                    onClick={() => setCreateMode('createTheme')}
+                    style={{ width: '100%' }}
+                  >
+                    Создать тему
+                  </Button>
+                </Col>
+              </Row>
+
+              {createMode === 'createCard' && (
+                <Container className="mt-4">
+                  <CreateCard themes={themes} />
+                </Container>
+              )}
+
+              {createMode === 'createTheme' && (
+                <Container className="mt-4">
+                  <CreateTheme onSubmit={handleThemeSubmit} />
+                </Container>
+              )}
             </div>
           )}
         </Card.Body>
