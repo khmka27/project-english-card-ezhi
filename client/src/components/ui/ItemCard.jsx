@@ -1,45 +1,85 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import ReactCardFlip from 'react-card-flip';
 
-import '../CSS/CardItem.css'; 
-export default function ItemCard({ card }) {
-  const [show, setShow] = useState(false);
+export default function ItemCard({ card, handleDelete, handleEdit }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedCard, setEditedCard] = useState(card); // 123
+
+
+  const handleFlip = (e) => {
+    if(e?.target?.tagName !== 'BUTTON' && e?.target?.tagName !== 'INPUT'){
+    setIsFlipped(!isFlipped);
+  };
+}
+
+  const handleSave = () => {
+    handleEdit(card.id, editedCard);
+    setIsEditing(false);
+    handleFlip();
+  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEditedCard({ ...editedCard, [name]: value });
+  };
 
   return (
-    <>
-      <Card
-        style={{
-          width: '350px',
-          height: '350px',
-          cursor: 'pointer',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-end',
-        }}
-        onClick={() => setShow((prev) => !prev)}
-      >
-        <Card.Body
-          style={{
-            fontFamily: 'Press Start 2P, cursive', 
-            fontSize: '20px',
-            borderRadius: '10px',
-            position: 'absolute',
-            left: '50%',
-            bottom: '50%',
-            transform: 'translate(-50%, 33%)',
-            textAlign: 'center',
-            width: '100%',
-            padding: '10px',
-          }}
-        >
-          <Card.Text className='coolfont'>
-            {show ? card.engWord : card.rusWord}
+    <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+      <Card style={{ width: '18rem' }} onClick={handleFlip}>
+        <Card.Body>
+          <Card.Text
+            style={{
+              color: 'transparent',
+            }}
+          >
+            {card.engWord}
           </Card.Text>
+          <Card.Text>{card.rusWord}</Card.Text>
         </Card.Body>
 
         <Button style={{}}>X</Button>
       </Card>
-    </>
+      <Card style={{ width: '18rem' }} onClick={handleFlip}>
+        <Card.Body>
+          {isEditing ? (
+            <>
+              <input
+                type="text"
+                name="engWord"
+                value={editedCard.engWord}
+                onChange={handleChange}
+                placeholder="Введите английское слово"
+              />
+              <input
+                type="text"
+                name="rusWord"
+                value={editedCard.rusWord}
+                onChange={handleChange}
+                placeholder="Введите русское слово"
+              />
+              <Button variant="outline-success" onClick={handleSave}>
+                Сохранить
+              </Button>
+              <Button variant="outline-danger" onClick={() => setIsEditing(false)}>
+                Отменить
+              </Button>
+            </>
+          ) : (
+            <>
+              <Card.Text>{card.rusWord}</Card.Text>
+          <Button variant="outline-primary" onClick={() =>  {setIsEditing(true)}}>
+                Изменить
+              </Button>
+              <Button variant="outline-danger" onClick={() => handleDelete(card.id)}>
+                Удалить
+              </Button>
+            </>
+          )}
+        </Card.Body>
+      </Card>
+    </ReactCardFlip>
   );
 }
+

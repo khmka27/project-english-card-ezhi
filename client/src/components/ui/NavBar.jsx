@@ -3,25 +3,27 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/esm/Button';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../CSS/NavBar.css';
 
 export default function NavBar({ user, logoutHandler }) {
   return (
     <Navbar className="custom-navbar" data-bs-theme="light">
       <Container>
+        <Navbar.Brand
+          as={NavLink}
+          to="/"
+          className="text-center"
+          style={{ lineHeight: '1' }}
+        >
+          <img src="../public/logo.svg" alt="logo" style={{ height: '75px' }} />
+        </Navbar.Brand>
         <Nav className="me-auto">
           <NavLink to="/" className="nav-link">
             Home
           </NavLink>
-          <NavLink to="/themes" className="nav-link">
-            Themes
-          </NavLink>
           {user.data && (
             <>
-              <NavLink to="/profile" className="nav-link">
-                Profile
-              </NavLink>
               <NavLink to="/themes" className="nav-link">
                 Themes
               </NavLink>
@@ -37,25 +39,19 @@ export default function NavBar({ user, logoutHandler }) {
               <NavLink to="/auth/signup" className="nav-link">
                 Sign Up
               </NavLink>
-              
+
               <span className="nav-link">|</span>
             </>
           )}
-          <span className="nav-link">
-            {user.data ? user.data.name : 'Гость'}
-          </span>
-          {user.data && (
-            <span className="nav-link">
-              <Button
-                onClick={logoutHandler}
-                variant="outline-danger"
-                size="sm"
-              >
-                Logout
-              </Button>
-            </span>
-          )}
+          <span className="nav-link">{user.data ? <Link to="/profile">{user?.data.name}</Link> : 'Гость'}</span>
         </Nav>
+        {user.data && (
+          <span>
+            <Button onClick={logoutHandler} className="custom-logout-button">
+              <img src="../public/exit-door.svg" alt="exit" style={{ height: '30px' }} />
+            </Button>
+          </span>
+        )}
       </Container>
     </Navbar>
   );

@@ -1,15 +1,17 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Layout from './components/Layout';
 import MainPage from './components/pages/MainPage';
-import SignUpPage from '../src/components/pages/SignUpPage';
-import SignInPage from '../src/components/pages/SignInPage';
+import SignUpPage from './components/pages/SignUpPage';
+import SignInPage from './components/pages/SignInPage';
 import ProtectedRouter from './components/HOCs/ProtectedRouter';
-import useUser from '../src/components/hooks/useUser';
+import useUser from './components/hooks/useUser';
 import ThemesPage from './components/pages/ThemesPage';
 import CardsPage from './components/pages/CardsPage';
 import ProfilePage from './components/pages/ProfilePage';
+
 function App() {
   const { logoutHandler, signInHandler, signUpHandler, user } = useUser();
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -21,11 +23,22 @@ function App() {
         },
         {
           path: '/profile',
-          element: <ProfilePage user={user} />,
+          element: (
+            <ProtectedRouter
+              isAllowed={user.status === 'logged'}
+              redirectTo="/"
+            >
+              <ProfilePage user={user} />
+            </ProtectedRouter>
+          ),
         },
-
         {
-          element: <ProtectedRouter isAllowed={user.status !== 'logged'} />,
+          element: (
+            <ProtectedRouter
+              isAllowed={user.status !== 'logged'}
+              redirectTo="/"
+            />
+          ),
           children: [
             {
               path: '/auth/signup',
@@ -48,6 +61,8 @@ function App() {
       ],
     },
   ]);
+
   return <RouterProvider router={router} />;
 }
+
 export default App;
