@@ -88,7 +88,7 @@ export default function ProfilePage({ user }) {
 
               {createMode === 'createCard' && (
                 <Container className="mt-4">
-                  <CreateCard themes={themes} />
+                  <CreateCard themes={themes} user={user} />
                 </Container>
               )}
 

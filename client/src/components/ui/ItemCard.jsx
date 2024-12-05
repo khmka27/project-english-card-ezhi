@@ -66,7 +66,7 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
             </>
           ) : (
             <>
-              <Card.Text>{card.rusWord}</Card.Text>
+              <Card.Text>{card.engWord}</Card.Text>
           <Button variant="outline-primary" onClick={() =>  {setIsEditing(true)}}>
                 Изменить
               </Button>
