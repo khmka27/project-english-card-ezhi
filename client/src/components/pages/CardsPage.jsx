@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import ItemCard from '../ui/ItemCard';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
