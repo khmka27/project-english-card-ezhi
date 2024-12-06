@@ -36,7 +36,7 @@ function App() {
           element: (
             <ProtectedRouter
               isAllowed={user.status !== 'logged'}
-              redirectTo="/"
+              redirectTo="/themes"
             />
           ),
           children: [
@@ -51,8 +51,14 @@ function App() {
           ],
         },
         {
+          element: (
+            <ProtectedRouter
+            isAllowed={user.status === 'logged'} redirectTo={'/'}
+            >
+              <ThemesPage />,
+            </ProtectedRouter>
+          ),
           path: '/themes',
-          element: <ThemesPage />,
         },
         {
           path: '/themes/:id',

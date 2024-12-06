@@ -25,6 +25,7 @@ export default function ThemesPage() {
           style={{
             margin: '10px',
           }}
+          key={card.id}
         >
           <ThemCard key={card.id} card={card} />
         </div>

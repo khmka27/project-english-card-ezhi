@@ -32,9 +32,8 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
           width: '15rem',
           height: '13rem',
           background:
-            'linear-gradient(to top, rgba(0, 25, 255, 0.5), rgba(0, 0, 0, 0))',
+            'linear-gradient(to top, rgba(0, 133, 250, 0.5), rgba(0, 0, 0, 0))',
           cursor: 'pointer',
-          // width: '100px'
         }}
         onClick={handleFlip}
       >
@@ -46,6 +45,7 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
             }}
           >
             {card.engWord}
+
           </Card.Text>
           <Card.Text
             className="coolfont"
@@ -59,16 +59,22 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
             {card.rusWord}
           </Card.Text>
         </Card.Body>
+      <Button variant='primary' style={{
+        height: '2rem'
+      }} onClick={() => handleDelete(card.id)} >Изучить</Button>
+
       </Card>
+
       <Card
         style={{
           width: '15rem',
           height: '13rem',
           background:
-            'linear-gradient(to top, rgba(0, 25, 255, 0.5), rgba(0, 0, 0, 0))',
+            'linear-gradient(to top, rgba(0, 133, 250, 0.5), rgba(0, 0, 0, 0))',
           cursor: 'pointer',
         }}
         onClick={handleFlip}
+
       >
         <Card.Body>
           {isEditing ? (
@@ -96,6 +102,7 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
               >
                 Отменить
               </Button>
+
             </>
           ) : (
             <>
@@ -113,6 +120,8 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
               <Button
                 variant="outline-primary"
                 style={{
+                  height: '2.2rem',
+                  width: '6.6rem',
                   position: 'absolute',
                   left: '60px',
                   bottom: '25px',
@@ -136,6 +145,7 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
               >
                 Delete
               </Button>
+
             </>
           )}
         </Card.Body>

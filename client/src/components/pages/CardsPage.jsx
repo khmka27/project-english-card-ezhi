@@ -9,7 +9,6 @@ export default function CardsPage() {
   const { id } = useParams();
 
   const handleDelete = async (id) => {
-
     try {
       const res = await axios.delete(`/api/cards/${id}`);
       if (res.status === 200) {
@@ -21,10 +20,12 @@ export default function CardsPage() {
   };
 
   const handleEdit = async (id, updatedData) => {
-    try { 
+    try {
       await axios.put(`/api/cards/${id}`, updatedData); // HTTP запрос
       setCards((prevCards) =>
-        prevCards.map((card) => (card.id === id ? { ...card, ...updatedData } : card)),
+        prevCards.map((card) =>
+          card.id === id ? { ...card, ...updatedData } : card
+        )
       );
     } catch (error) {
       console.error('Ошибка при обновлении карточки:', error);
@@ -48,36 +49,47 @@ export default function CardsPage() {
 
   return (
     <>
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'space-around',
-        flexWrap: 'wrap',
-        bottom: '10px',
-        paddingTop: '28px'
-      }}
-    >
-      
-      {cards.map((card) => (
-        <ItemCard
-          key={card.id}
-          card={card}
-          handleDelete={handleDelete}
-          handleEdit={handleEdit}
-        />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-start',
+          flexWrap: 'wrap',
+          bottom: '10px',
+          paddingTop: '30px',
+          overflowX: 'auto',
+          margin: '0 auto',
+          maxWidth: '1100px',
+        }}
+      >
+        {cards.map((card) => (
+          <div style={{
+            margin: '10px'
+          }} key={card.id}
+          >
+            <ItemCard
+              key={card.id}
+              card={card}
+              handleDelete={handleDelete}
+              handleEdit={handleEdit}
+            />
+          </div>
         ))}
-      
-    </div>
-    <div>
-      <Button style={{
-        position: 'absolute',
-        right: '80px',
-        top: '370px',
-        height: '3rem',
-      }} onClick={() => {
-        navigate(`/themes/${+id+1}`)
-      }}>Следующая тема</Button>
-    </div>
+      </div>
+      <div>
+        <Button variant='success'
+          style={{
+            position: 'absolute',
+            right: '80px',
+            top: '370px',
+            height: '3rem',
+          }}
+          onClick={() => {
+            navigate(`/themes/${+id + 1}`);
+          }}
+        >
+          Следующая тема
+        </Button>
+      </div>
     </>
   );
 }
