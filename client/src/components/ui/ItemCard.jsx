@@ -30,10 +30,14 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
       <Card
         style={{
           width: '15rem',
-          height: '13rem',
-          background:
-            'linear-gradient(to top, rgba(0, 133, 250, 0.5), rgba(0, 0, 0, 0))',
-          cursor: 'pointer',
+      height: '13rem',
+      background: 'linear-gradient(to top, rgba(0, 133, 250, 0.5), rgba(0, 0, 0, 0))',
+      cursor: 'pointer',
+      display: 'flex',
+      flexDirection: 'column', 
+      justifyContent: 'space-between', 
+      overflow: 'hidden',
+
         }}
         onClick={handleFlip}
       >
@@ -60,7 +64,8 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
           </Card.Text>
         </Card.Body>
       <Button variant='primary' style={{
-        height: '2rem'
+        height: '2rem',
+        width: '16rem'
       }} onClick={() => handleDelete(card.id)} >Изучить</Button>
 
       </Card>
@@ -123,7 +128,7 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
                   height: '2.2rem',
                   width: '6.6rem',
                   position: 'absolute',
-                  left: '60px',
+                  left: '77px',
                   bottom: '25px',
                 }}
                 onClick={() => {
@@ -138,7 +143,7 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
                   height: '2rem',
                   position: 'absolute',
                   top: '10px',
-                  right: '12px',
+                  right: '10px',
                 }}
                 variant="outline-danger"
                 onClick={() => handleDelete(card.id)}

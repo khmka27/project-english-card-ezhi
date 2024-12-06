@@ -79,8 +79,9 @@ export default function CardsPage() {
         <Button variant='success'
           style={{
             position: 'absolute',
+            width: '10rem',
             right: '80px',
-            top: '370px',
+            top: '450px',
             height: '3rem',
           }}
           onClick={() => {
