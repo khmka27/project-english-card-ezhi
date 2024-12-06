@@ -47,6 +47,7 @@ export default function CardsPage() {
   const navigate = useNavigate();
 
   return (
+    <>
     <div
       style={{
         display: 'flex',
@@ -56,9 +57,7 @@ export default function CardsPage() {
         paddingTop: '28px'
       }}
     >
-      <Button onClick={() => {
-        navigate(`/themes/${+id+1}`)
-      }}>Следующая тема</Button>
+      
       {cards.map((card) => (
         <ItemCard
           key={card.id}
@@ -66,7 +65,19 @@ export default function CardsPage() {
           handleDelete={handleDelete}
           handleEdit={handleEdit}
         />
-      ))}
+        ))}
+      
     </div>
+    <div>
+      <Button style={{
+        position: 'absolute',
+        right: '80px',
+        top: '370px',
+        height: '3rem',
+      }} onClick={() => {
+        navigate(`/themes/${+id+1}`)
+      }}>Следующая тема</Button>
+    </div>
+    </>
   );
 }
