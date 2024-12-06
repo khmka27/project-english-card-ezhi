@@ -8,36 +8,44 @@ import useUser from './components/hooks/useUser';
 import ThemesPage from './components/pages/ThemesPage';
 import CardsPage from './components/pages/CardsPage';
 import ProfilePage from './components/pages/ProfilePage';
+import ErrorPage from './components/pages/ErrorPage';
 
 function App() {
   const { logoutHandler, signInHandler, signUpHandler, user } = useUser();
 
   const router = createBrowserRouter([
     {
+      path: '*',
+      element: <ErrorPage />,
+    },
+    {
       path: '/',
       element: <Layout user={user} logoutHandler={logoutHandler} />,
+      // errorElement: <ErrorPage />
       children: [
         {
           path: '/',
-          element: <MainPage user={user} signInHandler={signInHandler} signUpHandler={signUpHandler} />,
+          element: (
+            <ProtectedRouter isAllowed={user.status !== 'logged'} redirectTo="/themes">
+              <MainPage
+                user={user}
+                signInHandler={signInHandler}
+                signUpHandler={signUpHandler}
+              />
+            </ProtectedRouter>
+          ),
         },
         {
           path: '/profile',
           element: (
-            <ProtectedRouter
-              isAllowed={user.status === 'logged'}
-              redirectTo="/"
-            >
+            <ProtectedRouter isAllowed={user.status === 'logged'} redirectTo="/">
               <ProfilePage user={user} />
             </ProtectedRouter>
           ),
         },
         {
           element: (
-            <ProtectedRouter
-              isAllowed={user.status !== 'logged'}
-              redirectTo="/themes"
-            />
+            <ProtectedRouter isAllowed={user.status !== 'logged'} redirectTo="/themes" />
           ),
           children: [
             {
@@ -52,9 +60,7 @@ function App() {
         },
         {
           element: (
-            <ProtectedRouter
-            isAllowed={user.status === 'logged'} redirectTo={'/'}
-            >
+            <ProtectedRouter isAllowed={user.status === 'logged'} redirectTo={'/'}>
               <ThemesPage />,
             </ProtectedRouter>
           ),
@@ -62,7 +68,7 @@ function App() {
         },
         {
           path: '/themes/:id',
-          element: <CardsPage />,
+          element: <CardsPage user={user} />,
         },
       ],
     },

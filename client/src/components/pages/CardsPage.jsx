@@ -4,8 +4,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/esm/Button';
 
-export default function CardsPage() {
+export default function CardsPage({ user }) {
   const [cards, setCards] = useState([]);
+
   const { id } = useParams();
 
   const handleDelete = async (id) => {
@@ -23,9 +24,7 @@ export default function CardsPage() {
     try {
       await axios.put(`/api/cards/${id}`, updatedData); // HTTP запрос
       setCards((prevCards) =>
-        prevCards.map((card) =>
-          card.id === id ? { ...card, ...updatedData } : card
-        )
+        prevCards.map((card) => (card.id === id ? { ...card, ...updatedData } : card)),
       );
     } catch (error) {
       console.error('Ошибка при обновлении карточки:', error);
@@ -62,21 +61,25 @@ export default function CardsPage() {
         }}
       >
         {cards.map((card) => (
-          <div style={{
-            margin: '10px'
-          }} key={card.id}
+          <div
+            style={{
+              margin: '10px',
+            }}
+            key={card.id}
           >
             <ItemCard
               key={card.id}
               card={card}
               handleDelete={handleDelete}
               handleEdit={handleEdit}
+              user={user}
             />
           </div>
         ))}
       </div>
       <div>
-        <Button variant='success'
+        <Button
+          variant="success"
           style={{
             position: 'absolute',
             width: '10rem',
