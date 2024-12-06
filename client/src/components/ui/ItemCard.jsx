@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import ReactCardFlip from 'react-card-flip';
 import '../CSS/CardItem.css';
 
-export default function ItemCard({ card, handleDelete, handleEdit }) {
+export default function ItemCard({ card, handleDelete, handleEdit, user }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editedCard, setEditedCard] = useState(card); // 123
@@ -122,6 +122,8 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
               >
                 {card.engWord}
               </Card.Text>
+              {card.createdBy === user.data.id && (
+                <>
               <Button
                 variant="outline-primary"
                 style={{
@@ -150,7 +152,8 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
               >
                 Delete
               </Button>
-
+              </>
+              )}
             </>
           )}
         </Card.Body>

@@ -16,6 +16,7 @@ function App() {
     {
       path: '/',
       element: <Layout user={user} logoutHandler={logoutHandler} />,
+      // errorElement: <ErrorPage />,
       children: [
         {
           path: '/',
@@ -24,10 +25,7 @@ function App() {
         {
           path: '/profile',
           element: (
-            <ProtectedRouter
-              isAllowed={user.status === 'logged'}
-              redirectTo="/"
-            >
+            <ProtectedRouter isAllowed={user.status === 'logged'} redirectTo="/">
               <ProfilePage user={user} />
             </ProtectedRouter>
           ),
@@ -62,7 +60,7 @@ function App() {
         },
         {
           path: '/themes/:id',
-          element: <CardsPage />,
+          element: <CardsPage user={user} />,
         },
       ],
     },

@@ -10,6 +10,9 @@ export default function CreateCard({ themes, user }) {
     try {
       const data = Object.fromEntries(new FormData(e.target));
       data.themeId = +data.themeId;
+      if(!data.engWord || !data.rusWord || !data.themeId){
+        throw new Error('Заполни карточку полностью');
+      }
       data.createdBy = user.data.id;
       console.log(data);
       await axios.post('/api/cards', data);

@@ -4,9 +4,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/esm/Button';
 
-export default function CardsPage() {
+export default function CardsPage({ user }) {
   const [cards, setCards] = useState([]);
+
   const { id } = useParams();
+
 
   const handleDelete = async (id) => {
     try {
@@ -20,6 +22,7 @@ export default function CardsPage() {
   };
 
   const handleEdit = async (id, updatedData) => {
+    try {
     try {
       await axios.put(`/api/cards/${id}`, updatedData); // HTTP запрос
       setCards((prevCards) =>
@@ -71,6 +74,7 @@ export default function CardsPage() {
               card={card}
               handleDelete={handleDelete}
               handleEdit={handleEdit}
+              user={user}
             />
           </div>
         ))}
