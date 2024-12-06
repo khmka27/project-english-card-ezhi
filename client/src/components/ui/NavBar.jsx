@@ -19,9 +19,11 @@ export default function NavBar({ user, logoutHandler }) {
           <img src="../public/logo.svg" alt="logo" style={{ height: '75px' }} />
         </Navbar.Brand>
         <Nav className="me-auto">
-          <NavLink to="/" className="nav-link">
-            Home
-          </NavLink>
+          {!user.data && (
+            <NavLink to="/" className="nav-link">
+              Home
+            </NavLink>
+          )}
           {user.data && (
             <>
               <NavLink to="/themes" className="nav-link">
@@ -31,7 +33,9 @@ export default function NavBar({ user, logoutHandler }) {
           )}
         </Nav>
         <Nav>
-          <span className="nav-link">{user.data ? <Link to="/profile">{user?.data.name}</Link> : 'Guest'}</span>
+          <span className="nav-link">
+            {user.data ? <Link to="/profile">{user?.data.name}</Link> : 'Guest'}
+          </span>
         </Nav>
         {user.data && (
           <span>

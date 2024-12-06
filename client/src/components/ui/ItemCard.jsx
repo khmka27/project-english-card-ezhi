@@ -66,7 +66,7 @@ export default function ItemCard({ card, handleDelete, handleEdit, user }) {
       <Button variant='primary' style={{
         height: '2rem',
         width: '16rem'
-      }} onClick={() => handleDelete(card.id)} >Изучить</Button>
+      }} onClick={() => handleDelete(card.id)} >Скрыть</Button>
 
       </Card>
 

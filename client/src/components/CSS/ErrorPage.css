@@ -1,0 +1,29 @@
+
+    container: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100vh',
+      backgroundColor: '#f0f0f0',
+      textAlign: 'center',
+    },
+    heading: {
+      color: '#333',
+      marginBottom: '20px',
+    },
+    image: {
+      width: '200px', // Или другой размер
+      marginBottom: '20px',
+    },
+    button: {
+      padding: '10px 20px',
+      fontSize: '16px',
+      color: '#fff',
+      backgroundColor: '#007bff',
+      border: 'none',
+      borderRadius: '5px',
+      cursor: 'pointer',
+      transition: 'background-color 0.3s',
+    }
+  
