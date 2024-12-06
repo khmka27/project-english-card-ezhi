@@ -19,7 +19,7 @@ function App() {
       children: [
         {
           path: '/',
-          element: <MainPage user={user} />,
+          element: <MainPage user={user} signInHandler={signInHandler} signUpHandler={signUpHandler} />,
         },
         {
           path: '/profile',
