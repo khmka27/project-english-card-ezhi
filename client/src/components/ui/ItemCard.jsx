@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ReactCardFlip from 'react-card-flip';
@@ -30,14 +30,14 @@ export default function ItemCard({ card, handleDelete, handleEdit, user }) {
       <Card
         style={{
           width: '15rem',
-      height: '13rem',
-      background: 'linear-gradient(to top, rgba(0, 133, 250, 0.5), rgba(0, 0, 0, 0))',
-      cursor: 'pointer',
-      display: 'flex',
-      flexDirection: 'column', 
-      justifyContent: 'space-between', 
-      overflow: 'hidden',
-
+          height: '13rem',
+          background:
+            'linear-gradient(to top, rgba(0, 133, 250, 0.5), rgba(0, 0, 0, 0))',
+          cursor: 'pointer',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          overflow: 'hidden',
         }}
         onClick={handleFlip}
       >
@@ -49,7 +49,6 @@ export default function ItemCard({ card, handleDelete, handleEdit, user }) {
             }}
           >
             {card.engWord}
-
           </Card.Text>
           <Card.Text
             className="coolfont"
@@ -63,11 +62,16 @@ export default function ItemCard({ card, handleDelete, handleEdit, user }) {
             {card.rusWord}
           </Card.Text>
         </Card.Body>
-      <Button variant='primary' style={{
-        height: '2rem',
-        width: '16rem'
-      }} onClick={() => handleDelete(card.id)} >Скрыть</Button>
-
+        <Button
+          variant="primary"
+          style={{
+            height: '2rem',
+            width: '16rem',
+          }}
+          onClick={() => handleDelete(card.id)}
+        >
+          Скрыть
+        </Button>
       </Card>
 
       <Card
@@ -79,7 +83,6 @@ export default function ItemCard({ card, handleDelete, handleEdit, user }) {
           cursor: 'pointer',
         }}
         onClick={handleFlip}
-
       >
         <Card.Body>
           {isEditing ? (
@@ -107,7 +110,6 @@ export default function ItemCard({ card, handleDelete, handleEdit, user }) {
               >
                 Отменить
               </Button>
-
             </>
           ) : (
             <>
@@ -124,35 +126,35 @@ export default function ItemCard({ card, handleDelete, handleEdit, user }) {
               </Card.Text>
               {card.createdBy === user.data.id && (
                 <>
-              <Button
-                variant="outline-primary"
-                style={{
-                  height: '2.2rem',
-                  width: '6.6rem',
-                  position: 'absolute',
-                  left: '77px',
-                  bottom: '25px',
-                }}
-                onClick={() => {
-                  setIsEditing(true);
-                }}
-              >
-                Изменить
-              </Button>
-              <Button
-                style={{
-                  width: '5rem',
-                  height: '2rem',
-                  position: 'absolute',
-                  top: '10px',
-                  right: '10px',
-                }}
-                variant="outline-danger"
-                onClick={() => handleDelete(card.id)}
-              >
-                Delete
-              </Button>
-              </>
+                  <Button
+                    variant="outline-primary"
+                    style={{
+                      height: '2.2rem',
+                      width: '6.6rem',
+                      position: 'absolute',
+                      left: '77px',
+                      bottom: '25px',
+                    }}
+                    onClick={() => {
+                      setIsEditing(true);
+                    }}
+                  >
+                    Изменить
+                  </Button>
+                  <Button
+                    style={{
+                      width: '5rem',
+                      height: '2rem',
+                      position: 'absolute',
+                      top: '10px',
+                      right: '10px',
+                    }}
+                    variant="outline-danger"
+                    onClick={() => handleDelete(card.id)}
+                  >
+                    Delete
+                  </Button>
+                </>
               )}
             </>
           )}

@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
+const path = require('path');
 
 const cardRouter = require('./routes/card.router');
 const learnedRouter = require('./routes/learned.router');
@@ -19,5 +20,10 @@ app.use('/api/tokens', tokenRouter);
 app.use('/api/themes', themeRouter);
 app.use('/api/cards', cardRouter);
 app.use('/api/learneds', learnedRouter);
+
+app.use(express.static(path.join(__dirname, '..', 'dist')));
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+});
 
 module.exports = app;
