@@ -1,39 +1,67 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import '../CSS/SignUpPage.css';
+
 export default function SignUpPage({ signUpHandler }) {
+
   return (
-    <Row>
-      <Col md={{ span: 6, offset: 3 }} className="mt-5">
-        <h3 className="text-center">Sign Up</h3>
-        <Form onSubmit={signUpHandler}>
-          <Form.Group className="mb-3" controlId="name">
-            <Form.Label>Name</Form.Label>
+    <div className="register-form">
+      <div className="signup-container">
+        <h3 className="text-center">SIGN UP</h3>
+        <Form onSubmit={signUpHandler} className="signup-form" >
+        <Form.Group className="group-name" controlId="name">
+            <Form.Label
+              style={{
+                top: '100px',
+                marginRight: '480px',
+              }}
+            >
+              Name
+            </Form.Label>
             <Form.Control
               name="name"
-              type="text"
-              placeholder="Enter first name"
+              type="name"
+              placeholder="Enter name"
+              className="form-control"
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="email">
-            <Form.Label>Email</Form.Label>
-            <Form.Control name="email" type="email" placeholder="Enter email" />
+          <Form.Group className="group-email" controlId="email">
+            <Form.Label
+              style={{
+                top: '100px',
+                marginRight: '480px',
+              }}
+            >
+              Email
+            </Form.Label>
+            <Form.Control
+              name="email"
+              type="email"
+              placeholder="Enter email"
+              className="form-control"
+            />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="password">
-            <Form.Label>Password</Form.Label>
+          <Form.Group className="group-password" controlId="password">
+            <Form.Label
+              style={{
+                marginRight: '450px',
+              }}
+            >
+              Password
+            </Form.Label>
             <Form.Control
               name="password"
               type="password"
               placeholder="Enter password"
+              className="form-control"
             />
           </Form.Group>
-          <Button variant="outline-primary" type="submit">
-            Sign up
+          <Button variant="outline-primary" type="submit" className="submit-button">
+            Sign Up
           </Button>
         </Form>
-      </Col>
-    </Row>
+      </div>
+    </div>
   );
 }

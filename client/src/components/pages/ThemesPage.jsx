@@ -22,11 +22,12 @@ export default function ThemesPage() {
     >
       {themes.map((card) => (
         <div
+          key={card.id}
           style={{
             margin: '10px',
           }}
         >
-          <ThemCard key={card.id} card={card} />
+          <ThemCard card={card} />
         </div>
       ))}
     </div>

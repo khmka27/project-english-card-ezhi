@@ -31,19 +31,7 @@ export default function NavBar({ user, logoutHandler }) {
           )}
         </Nav>
         <Nav>
-          {!user.data && (
-            <>
-              <NavLink to="/auth/signin" className="nav-link">
-                Sign in
-              </NavLink>
-              <NavLink to="/auth/signup" className="nav-link">
-                Sign Up
-              </NavLink>
-
-              <span className="nav-link">|</span>
-            </>
-          )}
-          <span className="nav-link">{user.data ? <Link to="/profile">{user?.data.name}</Link> : 'Гость'}</span>
+          <span className="nav-link">{user.data ? <Link to="/profile">{user?.data.name}</Link> : 'Guest'}</span>
         </Nav>
         {user.data && (
           <span>
