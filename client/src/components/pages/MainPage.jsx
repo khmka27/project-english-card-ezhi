@@ -13,6 +13,6 @@ export default function MainPage() {
       justifyContent: 'center',
       textAlign: 'center'
     }}>
-    </div>
+      </div>
   );
 }
