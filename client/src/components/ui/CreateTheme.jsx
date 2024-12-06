@@ -8,9 +8,12 @@ export default function CreateTheme() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const data = Object.fromEntries(new FormData(e.target));
-      console.log(data);
-      await axios.post('/api/themes', data);
+      const formData = new FormData(e.target);
+      const nameTheme = formData.get('nameTheme');
+      const image = formData.get('file');
+      console.log(nameTheme);
+      console.log(image);
+      await axios.post('/api/themes', formData);
       navigate(`/themes`);
       e.target.reset();
     } catch (error) {
@@ -32,12 +35,7 @@ export default function CreateTheme() {
       </Form.Group>
       <Form.Group controlId="formThemeName">
         <Form.Label>Картинка</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Добавьте сслыку на картинку"
-          name="image"
-          required
-        />
+        <Form.Control type="file" name="file" required />
       </Form.Group>
       <Button variant="primary" type="submit" className="mt-3">
         Добавить тему

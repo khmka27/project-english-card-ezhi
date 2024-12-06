@@ -1,6 +1,9 @@
 const express = require('express');
 const themeRouter = express.Router();
 const { Theme } = require('../../db/models');
+const fs = require('fs/promises');
+const sharp = require('sharp');
+const upload = require('../middlewares/multer');
 
 themeRouter
   .route('/')
@@ -13,17 +16,23 @@ themeRouter
       res.status(500).send('Внутренняя ошибка сервера');
     }
   })
-  .post(async (req, res) => {
+  .post(upload.single('file'), async (req, res) => {
     try {
-      const { nameTheme, image } = req.body;
+      if (!req.file) {
+        return res.status(400).json({ message: 'Нет файла' });
+      }
+      const { nameTheme } = req.body;
 
-      if (!nameTheme || !image) {
+      if (!nameTheme) {
         return res.status(400).send('Все поля обязательны для заполнения.');
       }
+      const name = `${Date.now()}.webp`;
+      const outputBuffer = await sharp(req.file.buffer).webp().toBuffer();
+      await fs.writeFile(`./public/${name}`, outputBuffer);
 
       const newTheme = await Theme.create({
         nameTheme,
-        image,
+        image: name,
       });
       res.status(201).json(newTheme);
     } catch (error) {
@@ -51,12 +60,13 @@ themeRouter
   })
   .put(async (req, res) => {
     const { id } = req.params;
-    const { nameTheme, image } = req.body;
+    const { nameTheme, file } = req.body;
+    console.log(file);
 
     try {
       const theme = await Theme.findByPk(id);
       if (theme) {
-        await theme.update({ nameTheme, image });
+        await theme.update({ nameTheme, image: file.name });
         res.status(200).json(theme);
       } else {
         res.status(404).json({ error: 'Тема не найдена.' });

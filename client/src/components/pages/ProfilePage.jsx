@@ -57,13 +57,10 @@ export default function ProfilePage({ user }) {
 
           {activeTab === 'progress' && (
             <div className="mt-4">
-
               <h5>Прогресс обучения</h5>
-                {themes
-                .map((theme) => (
-                <Progress key={theme.id} theme={theme
-                } />
-                ))}
+              {themes.map((theme) => (
+                <Progress key={theme.id} theme={theme} />
+              ))}
             </div>
           )}
 
@@ -73,7 +70,9 @@ export default function ProfilePage({ user }) {
               <Row className="mt-4">
                 <Col>
                   <Button
-                    variant={createMode === 'createCard' ? 'primary' : 'secondary'}
+                    variant={
+                      createMode === 'createCard' ? 'primary' : 'secondary'
+                    }
                     onClick={() => setCreateMode('createCard')}
                     style={{ width: '100%' }}
                   >
@@ -82,7 +81,9 @@ export default function ProfilePage({ user }) {
                 </Col>
                 <Col>
                   <Button
-                    variant={createMode === 'createTheme' ? 'primary' : 'secondary'}
+                    variant={
+                      createMode === 'createTheme' ? 'primary' : 'secondary'
+                    }
                     onClick={() => setCreateMode('createTheme')}
                     style={{ width: '100%' }}
                   >
