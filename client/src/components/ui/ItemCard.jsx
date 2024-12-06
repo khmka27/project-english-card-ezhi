@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ReactCardFlip from 'react-card-flip';
+import '../CSS/CardItem.css';
 
 export default function ItemCard({ card, handleDelete, handleEdit }) {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -26,22 +27,49 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
 
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-      <Card style={{ 
-        // width: '18rem',
-        
-       }} onClick={handleFlip}>
+      <Card
+        style={{
+          width: '15rem',
+          height: '13rem',
+          background:
+            'linear-gradient(to top, rgba(0, 25, 255, 0.5), rgba(0, 0, 0, 0))',
+          cursor: 'pointer',
+          // width: '100px'
+        }}
+        onClick={handleFlip}
+      >
         <Card.Body>
           <Card.Text
+            className="coolfont"
             style={{
               color: 'transparent',
             }}
           >
             {card.engWord}
           </Card.Text>
-          <Card.Text>{card.rusWord}</Card.Text>
+          <Card.Text
+            className="coolfont"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop: '35px',
+            }}
+          >
+            {card.rusWord}
+          </Card.Text>
         </Card.Body>
       </Card>
-      <Card style={{ width: '18rem' }} onClick={handleFlip}>
+      <Card
+        style={{
+          width: '15rem',
+          height: '13rem',
+          background:
+            'linear-gradient(to top, rgba(0, 25, 255, 0.5), rgba(0, 0, 0, 0))',
+          cursor: 'pointer',
+        }}
+        onClick={handleFlip}
+      >
         <Card.Body>
           {isEditing ? (
             <>
@@ -71,9 +99,24 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
             </>
           ) : (
             <>
-              <Card.Text>{card.rusWord}</Card.Text>
+              <Card.Text
+                className="coolfont"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginTop: '60px',
+                }}
+              >
+                {card.engWord}
+              </Card.Text>
               <Button
                 variant="outline-primary"
+                style={{
+                  position: 'absolute',
+                  left: '60px',
+                  bottom: '25px',
+                }}
                 onClick={() => {
                   setIsEditing(true);
                 }}
@@ -81,10 +124,17 @@ export default function ItemCard({ card, handleDelete, handleEdit }) {
                 Изменить
               </Button>
               <Button
+                style={{
+                  width: '5rem',
+                  height: '2rem',
+                  position: 'absolute',
+                  top: '10px',
+                  right: '12px',
+                }}
                 variant="outline-danger"
                 onClick={() => handleDelete(card.id)}
               >
-                Удалить
+                Delete
               </Button>
             </>
           )}

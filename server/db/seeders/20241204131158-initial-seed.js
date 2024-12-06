@@ -87,7 +87,7 @@ module.exports = {
       {
         engWord: 'Apple',
         rusWord: 'Яблоко',
-        themeId: 1,
+        themeId: 6,
         createdBy: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -95,7 +95,7 @@ module.exports = {
       {
         engWord: 'Bread',
         rusWord: 'Хлеб',
-        themeId: 1,
+        themeId: 6,
         createdBy: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -103,7 +103,7 @@ module.exports = {
       {
         engWord: 'Cheese',
         rusWord: 'Сыр',
-        themeId: 1,
+        themeId: 6,
         createdBy: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -111,7 +111,7 @@ module.exports = {
       {
         engWord: 'Chicken',
         rusWord: 'Курица',
-        themeId: 1,
+        themeId: 6,
         createdBy: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -119,7 +119,7 @@ module.exports = {
       {
         engWord: 'Fish',
         rusWord: 'Рыба',
-        themeId: 1,
+        themeId: 6,
         createdBy: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -297,7 +297,7 @@ module.exports = {
       {
         engWord: 'Flashcard',
         rusWord: 'Флеш-карта',
-        themeId: 6,
+        themeId: 1,
         createdBy: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -305,7 +305,7 @@ module.exports = {
       {
         engWord: 'Quiz',
         rusWord: 'Викторина',
-        themeId: 6,
+        themeId: 1,
         createdBy: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -313,7 +313,7 @@ module.exports = {
       {
         engWord: 'Study',
         rusWord: 'Учеба',
-        themeId: 6,
+        themeId: 1,
         createdBy: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -321,7 +321,7 @@ module.exports = {
       {
         engWord: 'Test',
         rusWord: 'Тест',
-        themeId: 6,
+        themeId: 1,
         createdBy: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -329,7 +329,7 @@ module.exports = {
       {
         engWord: 'Review',
         rusWord: 'Обзор',
-        themeId: 6,
+        themeId: 1,
         createdBy: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
